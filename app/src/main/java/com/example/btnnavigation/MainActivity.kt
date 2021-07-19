@@ -22,16 +22,17 @@ class MainActivity : AppCompatActivity() {
 
         setCurrentFragment(firstFragment)
 
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener  {
-            when(it.itemId){
-                R.id.miHome -> setCurrentFragment(firstFragment)
+        binding.bottomNavigationView.setOnItemSelectedListener{
+            when(it.itemId)   {
                 R.id.miMessage -> setCurrentFragment(secondFragment)
                 R.id.miProfile -> setCurrentFragment(thirdFragment)
+                else -> setCurrentFragment(firstFragment)
             }
             true
         }
 
     }
+
 
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
